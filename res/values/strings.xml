@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, TakeawalkActivity!</string>
+    <string name="app_name">Takeawalk</string>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#333333</color>
+    <string name="cargar5mas">Cargar rutas anteriores</string>
+    <string name="mas">"  +  "</string>
+    <string name="menos">"  -  "</string>
+    <string name="menossss">"   -   "</string>
+    <string name="mmenos">"   -  "</string>
+
+</resources>
