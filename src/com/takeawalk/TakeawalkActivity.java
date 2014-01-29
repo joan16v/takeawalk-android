@@ -5,7 +5,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -17,7 +16,6 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -30,16 +28,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class TakeawalkActivity extends Activity {
-    /** Called when the activity is first created. */
 	
-	private ImageView logo;
-	private TextView enlace1;
-	private TextView enlace2;
-	private TextView enlace3;
-	private TextView enlace4;
-	private TextView enlace5;	
-	private Button boton;
-	private Button botonMenos;
+    private ImageView logo;
+    private TextView enlace1;
+    private TextView enlace2;
+    private TextView enlace3;
+    private TextView enlace4;
+    private TextView enlace5;	
+    private Button boton;
+    private Button botonMenos;
 	
     Integer idruta1=0;
     String title1="";
