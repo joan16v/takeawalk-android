@@ -74,7 +74,6 @@ public class TakeawalkActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        //setContentView(R.layout.principal);
         setContentView(R.layout.principal_linear);
         
         logo = (ImageView) findViewById(R.id.imageView1);
@@ -93,7 +92,6 @@ public class TakeawalkActivity extends Activity {
         
         boton = (Button) findViewById(R.id.button1);
         botonMenos = (Button) findViewById(R.id.button2);
-        //boton.setPadding(50, 40, 0, 0);
         
         logo.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {            	
@@ -175,13 +173,9 @@ public class TakeawalkActivity extends Activity {
     
     private void get_results(Integer start) {
     	
-	      String result = "";
-	      //InputStream is
-	      
-	      //the year data to send
+	      String result = "";	      
 	      ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 	      nameValuePairs.add(new BasicNameValuePair("results", start.toString() ));
-	      //nameValuePairs.add(new BasicNameValuePair("start", start.toString() ));
 	       
 	      //Hachettp post
 	      try{
@@ -212,7 +206,7 @@ public class TakeawalkActivity extends Activity {
 	                      Log.i("log_tag","id: "+json_data.getInt("id")+
 	                              ", ciudad: "+json_data.getString("ciudad")
 	                      );
-	                      //log.setText("id: "+json_data.getInt("id")+", ciudad: "+json_data.getString("ciudad"));
+
 	                      DecimalFormat df = new DecimalFormat("0.00");	                        
 	                      if( i==0 ) {
 	                    	  idruta1=Integer.parseInt(json_data.getString("id"));
