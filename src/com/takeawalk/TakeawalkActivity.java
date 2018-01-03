@@ -99,9 +99,9 @@ public class TakeawalkActivity extends Activity {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
             			viewruta.class);
-            			intent.putExtra("idruta",idruta1);
-            			intent.putExtra("titulo",title1);
-            			intent.putExtra("puntos",puntos1);
+            			intent.putExtra("idruta", idruta1);
+            			intent.putExtra("titulo", title1);
+            			intent.putExtra("puntos", puntos1);
             			startActivity(intent);            	
             }
         });
@@ -110,9 +110,9 @@ public class TakeawalkActivity extends Activity {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
             			viewruta.class);
-            			intent.putExtra("idruta",idruta2);
-            			intent.putExtra("titulo",title2);
-            			intent.putExtra("puntos",puntos2);
+            			intent.putExtra("idruta", idruta2);
+            			intent.putExtra("titulo", title2);
+            			intent.putExtra("puntos", puntos2);
             			startActivity(intent);            	
             }
         });
@@ -121,9 +121,9 @@ public class TakeawalkActivity extends Activity {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
             			viewruta.class);
-            			intent.putExtra("idruta",idruta3);
-            			intent.putExtra("titulo",title3);
-            			intent.putExtra("puntos",puntos3);
+            			intent.putExtra("idruta", idruta3);
+            			intent.putExtra("titulo", title3);
+            			intent.putExtra("puntos", puntos3);
             			startActivity(intent);            	
             }
         });
@@ -132,9 +132,9 @@ public class TakeawalkActivity extends Activity {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
             			viewruta.class);
-            			intent.putExtra("idruta",idruta4);
-            			intent.putExtra("titulo",title4);
-            			intent.putExtra("puntos",puntos4);
+            			intent.putExtra("idruta", idruta4);
+            			intent.putExtra("titulo", title4);
+            			intent.putExtra("puntos", puntos4);
             			startActivity(intent);            	
             }
         });
@@ -143,9 +143,9 @@ public class TakeawalkActivity extends Activity {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
             			viewruta.class);
-            			intent.putExtra("idruta",idruta5);
-            			intent.putExtra("titulo",title5);
-            			intent.putExtra("puntos",puntos5);
+            			intent.putExtra("idruta", idruta5);
+            			intent.putExtra("titulo", title5);
+            			intent.putExtra("puntos", puntos5);
             			startActivity(intent);            	
             }
         }); 
