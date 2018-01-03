@@ -27,8 +27,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class TakeawalkActivity extends Activity {
-	
+public class TakeawalkActivity extends Activity {	
     private ImageView logo;
     private TextView enlace1;
     private TextView enlace2;
@@ -168,11 +167,10 @@ public class TakeawalkActivity extends Activity {
         get_results(0);        
     }
     
-    private void get_results(Integer start) {
-    	
+    private void get_results(Integer start) {    	
 	      String result = "";	      
 	      ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-	      nameValuePairs.add(new BasicNameValuePair("results", start.toString() ));
+	      nameValuePairs.add(new BasicNameValuePair("results", start.toString()));
 	       
 	      try {
 	              HttpClient httpclient = new DefaultHttpClient();
