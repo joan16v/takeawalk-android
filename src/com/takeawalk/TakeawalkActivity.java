@@ -263,7 +263,7 @@ public class TakeawalkActivity extends Activity {
 	                    		  temp = temp / 1000;
 	                    		  long4 = (df.format(temp).toString()) + " km";
 	                    	  } else {
-	                    		  long4 = temp.toString()+" m";
+	                    		  long4 = temp.toString() + " m";
 	                    	  }
 	                    	  desc4 = json_data.getString("descripcion");
 	                    	  if (desc4 != "" && desc4 != "null") {
