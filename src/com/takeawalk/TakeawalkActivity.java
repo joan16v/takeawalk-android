@@ -38,42 +38,36 @@ public class TakeawalkActivity extends Activity {
     private Button boton;
     private Button botonMenos;
 	
-    Integer idruta1=0;
-    String title1="";
-    String desc1="";
-    String long1="";
-    String puntos1="";
-    
-    Integer idruta2=0;
-    String title2="";
-    String desc2="";
-    String long2="";
-    String puntos2="";
-    
-    Integer idruta3=0;
-    String title3="";
-    String desc3="";
-    String long3="";
-    String puntos3="";
-    
-    Integer idruta4=0;
-    String title4="";
-    String desc4="";
-    String long4="";
-    String puntos4="";
-    
-    Integer idruta5=0;
-    String title5="";
-    String desc5="";
-    String long5="";
-    String puntos5="";
-    
-    Integer last_result=0;
+    Integer idruta1 = 0;
+    String title1 = "";
+    String desc1 = "";
+    String long1 = "";
+    String puntos1 = "";    
+    Integer idruta2 = 0;
+    String title2 = "";
+    String desc2 = "";
+    String long2 = "";
+    String puntos2 = "";    
+    Integer idruta3 = 0;
+    String title3 = "";
+    String desc3 = "";
+    String long3 = "";
+    String puntos3 = "";    
+    Integer idruta4 = 0;
+    String title4 = "";
+    String desc4 = "";
+    String long4 = "";
+    String puntos4 = "";    
+    Integer idruta5 = 0;
+    String title5 = "";
+    String desc5 = "";
+    String long5 = "";
+    String puntos5 = "";    
+    Integer last_result = 0;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
+        super.onCreate(savedInstanceState);        
         setContentView(R.layout.principal_linear);
         
         logo = (ImageView) findViewById(R.id.imageView1);
@@ -111,7 +105,8 @@ public class TakeawalkActivity extends Activity {
             			intent.putExtra("puntos",puntos1);
             			startActivity(intent);            	
             }
-        });  
+        });
+
         enlace2.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
@@ -121,7 +116,8 @@ public class TakeawalkActivity extends Activity {
             			intent.putExtra("puntos",puntos2);
             			startActivity(intent);            	
             }
-        }); 
+        });
+
         enlace3.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
@@ -131,7 +127,8 @@ public class TakeawalkActivity extends Activity {
             			intent.putExtra("puntos",puntos3);
             			startActivity(intent);            	
             }
-        }); 
+        });
+
         enlace4.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
@@ -141,7 +138,8 @@ public class TakeawalkActivity extends Activity {
             			intent.putExtra("puntos",puntos4);
             			startActivity(intent);            	
             }
-        }); 
+        });
+
         enlace5.setOnClickListener(new OnClickListener() {
             public void onClick(View view) {            	
             	Intent intent = new Intent(TakeawalkActivity.this, 
@@ -167,8 +165,7 @@ public class TakeawalkActivity extends Activity {
             }
         });         
         
-        get_results(0);
-        
+        get_results(0);        
     }
     
     private void get_results(Integer start) {
@@ -177,16 +174,14 @@ public class TakeawalkActivity extends Activity {
 	      ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 	      nameValuePairs.add(new BasicNameValuePair("results", start.toString() ));
 	       
-	      //Hachettp post
-	      try{
+	      try {
 	              HttpClient httpclient = new DefaultHttpClient();
 	              HttpPost httppost = new HttpPost("http://www.takeawalk.es/android/get_rutas.php");
 	              httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 	              HttpResponse response = httpclient.execute(httppost);
 	              HttpEntity entity = response.getEntity();
 	              InputStream is = entity.getContent();
-	              //convert response to string
-	              BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
+	              BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
 	              StringBuilder sb = new StringBuilder();
 	              String line = null;
 	              while ((line = reader.readLine()) != null) {
@@ -194,115 +189,115 @@ public class TakeawalkActivity extends Activity {
 	              }
 	              is.close();	       
 	              result=sb.toString();	              
-	      }catch(Exception e){
-	              Log.e("log_tag", "Error in http connection "+e.toString());
+	      } catch(Exception e) {
+	              Log.e("log_tag", "Error in http connection " + e.toString());
 	      }
 	       
-	      //parse json data
-	      try{
+	      try {
 	              JSONArray jArray = new JSONArray(result);
-	              for(int i=0;i<jArray.length();i++){
+	              for (int i = 0; i < jArray.length(); i++){
 	                      JSONObject json_data = jArray.getJSONObject(i);
-	                      Log.i("log_tag","id: "+json_data.getInt("id")+
-	                              ", ciudad: "+json_data.getString("ciudad")
-	                      );
-
-	                      DecimalFormat df = new DecimalFormat("0.00");	                        
-	                      if( i==0 ) {
-	                    	  idruta1=Integer.parseInt(json_data.getString("id"));
-	                    	  title1="Ruta en "+json_data.getString("ciudad");
-	                    	  Float temp=Float.parseFloat(json_data.getString("longitud").toString());
-	                    	  if( temp>1000 ) {
-	                    		  temp=temp/1000;	                    		  
-	                    		  long1=(df.format(temp).toString())+" km";
+	                      Log.i("log_tag", "id: " + json_data.getInt("id") + ", ciudad: " + json_data.getString("ciudad"));
+	                      DecimalFormat df = new DecimalFormat("0.00");
+			      
+	                      if (i == 0) {
+	                    	  idruta1 = Integer.parseInt(json_data.getString("id"));
+	                    	  title1 = "Ruta en " + json_data.getString("ciudad");
+	                    	  Float temp = Float.parseFloat(json_data.getString("longitud").toString());
+	                    	  if (temp > 1000) {
+	                    		  temp = temp / 1000;	                    		  
+	                    		  long1 = (df.format(temp).toString()) + " km";
 	                    	  } else {
-	                    		  long1=temp.toString()+" m";
-	                    	  }	                    	  
-	                    	  desc1=json_data.getString("descripcion");
-	                    	  if( desc1!="" && desc1!="null" ) {
-	                    		  enlace1.setText("Ruta en "+json_data.getString("ciudad")+" - "+json_data.getString("descripcion")+" ("+long1+").");
-	                    	  } else {
-	                    		  enlace1.setText("Ruta en "+json_data.getString("ciudad")+" ("+long1+").");
-	                    	  }	  
-	                    	  puntos1=json_data.getString("ruta");
-	                      }
-	                      if( i==1 ) {
-	                    	  idruta2=Integer.parseInt(json_data.getString("id"));
-	                    	  title2="Ruta en "+json_data.getString("ciudad");
-	                    	  Float temp=Float.parseFloat(json_data.getString("longitud").toString());
-	                    	  if( temp>1000 ) {
-	                    		  temp=temp/1000;	                    		  
-	                    		  long2=(df.format(temp).toString())+" km";
-	                    	  } else {
-	                    		  long2=temp.toString()+" m";
-	                    	  }	 
-	                    	  desc2=json_data.getString("descripcion");
-	                    	  if( desc2!="" && desc2!="null" ) {
-	                    		  enlace2.setText("Ruta en "+json_data.getString("ciudad")+" - "+json_data.getString("descripcion")+" ("+long2+").");
-	                    	  } else {
-	                    		  enlace2.setText("Ruta en "+json_data.getString("ciudad")+" ("+long2+").");
-	                    	  }	   
-	                    	  puntos2=json_data.getString("ruta");
-	                      }
-	                      if( i==2 ) {
-	                    	  idruta3=Integer.parseInt(json_data.getString("id"));
-	                    	  title3="Ruta en "+json_data.getString("ciudad");
-	                    	  Float temp=Float.parseFloat(json_data.getString("longitud").toString());
-	                    	  if( temp>1000 ) {
-	                    		  temp=temp/1000;	                    		  
-	                    		  long3=(df.format(temp).toString())+" km";
-	                    	  } else {
-	                    		  long3=temp.toString()+" m";
-	                    	  }	 	                    	  
-	                    	  desc3=json_data.getString("descripcion");
-	                    	  if( desc3!="" && desc3!="null" ) {
-	                    		  enlace3.setText("Ruta en "+json_data.getString("ciudad")+" - "+json_data.getString("descripcion")+" ("+long3+").");
-	                    	  } else {
-	                    		  enlace3.setText("Ruta en "+json_data.getString("ciudad")+" ("+long3+").");
-	                    	  }	 
-	                    	  puntos3=json_data.getString("ruta");
-	                      }
-	                      if( i==3 ) {
-	                    	  idruta4=Integer.parseInt(json_data.getString("id"));
-	                    	  title4="Ruta en "+json_data.getString("ciudad");
-	                    	  Float temp=Float.parseFloat(json_data.getString("longitud").toString());
-	                    	  if( temp>1000 ) {
-	                    		  temp=temp/1000;	                    		  
-	                    		  long4=(df.format(temp).toString())+" km";
-	                    	  } else {
-	                    		  long4=temp.toString()+" m";
-	                    	  }	 
-	                    	  desc4=json_data.getString("descripcion");
-	                    	  if( desc4!="" && desc4!="null" ) {
-	                    		  enlace4.setText("Ruta en "+json_data.getString("ciudad")+" - "+json_data.getString("descripcion")+" ("+long4+").");
-	                    	  } else {
-	                    		  enlace4.setText("Ruta en "+json_data.getString("ciudad")+" ("+long4+").");
+	                    		  long1 = temp.toString() + " m";
 	                    	  }
-	                    	  puntos4=json_data.getString("ruta");
-	                      }
-	                      if( i==4 ) {
-	                    	  idruta5=Integer.parseInt(json_data.getString("id"));
-	                    	  last_result=idruta5;
-	                    	  title5="Ruta en "+json_data.getString("ciudad");
-	                    	  Float temp=Float.parseFloat(json_data.getString("longitud").toString());
-	                    	  if( temp>1000 ) {
-	                    		  temp=temp/1000;	                    		  
-	                    		  long5=(df.format(temp).toString())+" km";
+	                    	  desc1 = json_data.getString("descripcion");
+	                    	  if (desc1 != "" && desc1 != "null") {
+	                    		  enlace1.setText("Ruta en " + json_data.getString("ciudad") + " - " + json_data.getString("descripcion") + " (" + long1 + ").");
 	                    	  } else {
-	                    		  long5=temp.toString()+" m";
-	                    	  }	 
-	                    	  desc5=json_data.getString("descripcion");
-	                    	  if( desc5!="" && desc5!="null" ) {
-	                    		  enlace5.setText("Ruta en "+json_data.getString("ciudad")+" - "+json_data.getString("descripcion")+" ("+long5+").");
-	                    	  } else {
-	                    		  enlace5.setText("Ruta en "+json_data.getString("ciudad")+" ("+long5+").");
+	                    		  enlace1.setText("Ruta en " + json_data.getString("ciudad") + " (" + long1 + ").");
 	                    	  }	  
-	                    	  puntos5=json_data.getString("ruta");
-	                      }	                      
+	                    	  puntos1 = json_data.getString("ruta");
+	                      }
+
+	                      if (i == 1) {
+	                    	  idruta2 = Integer.parseInt(json_data.getString("id"));
+	                    	  title2 = "Ruta en " + json_data.getString("ciudad");
+	                    	  Float temp = Float.parseFloat(json_data.getString("longitud").toString());
+	                    	  if (temp > 1000) {
+	                    		  temp = temp / 1000;	                    		  
+	                    		  long2 = (df.format(temp).toString()) + " km";
+	                    	  } else {
+	                    		  long2 = temp.toString() + " m";
+	                    	  }
+	                    	  desc2 = json_data.getString("descripcion");
+	                    	  if (desc2 != "" && desc2 != "null") {
+	                    		  enlace2.setText("Ruta en " + json_data.getString("ciudad") + " - " + json_data.getString("descripcion") + " (" + long2 + ").");
+	                    	  } else {
+	                    		  enlace2.setText("Ruta en " + json_data.getString("ciudad") + " (" + long2 + ").");
+	                    	  }
+	                    	  puntos2 = json_data.getString("ruta");
+	                      }
+
+	                      if (i == 2) {
+	                    	  idruta3 = Integer.parseInt(json_data.getString("id"));
+	                    	  title3 = "Ruta en " + json_data.getString("ciudad");
+	                    	  Float temp = Float.parseFloat(json_data.getString("longitud").toString());
+	                    	  if (temp > 1000) {
+	                    		  temp = temp / 1000;	                    		  
+	                    		  long3 = (df.format(temp).toString()) + " km";
+	                    	  } else {
+	                    		  long3 = temp.toString() + " m";
+	                    	  } 
+	                    	  desc3 = json_data.getString("descripcion");
+	                    	  if (desc3 != "" && desc3 != "null") {
+	                    		  enlace3.setText("Ruta en " + json_data.getString("ciudad") + " - " + json_data.getString("descripcion") + " (" + long3 + ").");
+	                    	  } else {
+	                    		  enlace3.setText("Ruta en " + json_data.getString("ciudad") + " (" + long3 + ").");
+	                    	  }	 
+	                    	  puntos3 = json_data.getString("ruta");
+	                      }
+
+	                      if (i == 3) {
+	                    	  idruta4 = Integer.parseInt(json_data.getString("id"));
+	                    	  title4 = "Ruta en " + json_data.getString("ciudad");
+	                    	  Float temp = Float.parseFloat(json_data.getString("longitud").toString());
+	                    	  if (temp > 1000) {
+	                    		  temp = temp / 1000;
+	                    		  long4 = (df.format(temp).toString()) + " km";
+	                    	  } else {
+	                    		  long4 = temp.toString()+" m";
+	                    	  }
+	                    	  desc4 = json_data.getString("descripcion");
+	                    	  if (desc4 != "" && desc4 != "null") {
+	                    		  enlace4.setText("Ruta en " + json_data.getString("ciudad") + " - " + json_data.getString("descripcion") + " (" + long4 + ").");
+	                    	  } else {
+	                    		  enlace4.setText("Ruta en " + json_data.getString("ciudad") + " (" + long4 + ").");
+	                    	  }
+	                    	  puntos4 = json_data.getString("ruta");
+	                      }
+
+	                      if (i == 4) {
+	                    	  idruta5 = Integer.parseInt(json_data.getString("id"));
+	                    	  last_result = idruta5;
+	                    	  title5 = "Ruta en " + json_data.getString("ciudad");
+	                    	  Float temp = Float.parseFloat(json_data.getString("longitud").toString());
+	                    	  if (temp > 1000) {
+	                    		  temp = temp / 1000;	                    		  
+	                    		  long5 = (df.format(temp).toString()) + " km";
+	                    	  } else {
+	                    		  long5 = temp.toString() + " m";
+	                    	  }
+	                    	  desc5 = json_data.getString("descripcion");
+	                    	  if (desc5 != "" && desc5 != "null") {
+	                    		  enlace5.setText("Ruta en " + json_data.getString("ciudad") + " - " + json_data.getString("descripcion") + " (" + long5 + ").");
+	                    	  } else {
+	                    		  enlace5.setText("Ruta en " + json_data.getString("ciudad") + " (" + long5 + ").");
+	                    	  }
+	                    	  puntos5 = json_data.getString("ruta");
+	                      }          
 	              }	      
-	      }catch(JSONException e){
-	              Log.e("log_tag", "Error parsing data "+e.toString());
-	      }      	
-    }
-    
+	      } catch(JSONException e) {
+	              Log.e("log_tag", "Error parsing data: " + e.toString());
+	      }
+    }    
 }
